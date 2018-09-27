@@ -1,1 +1,1 @@
-For experimenting OpenMP
+For experimenting with OpenMP
