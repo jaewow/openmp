@@ -9,6 +9,8 @@ int main(int argc, char* argv[]){
 	char line[2000];
 	int row1, col1, row2, col2;
 
+	int numThreads = atoi(argv[3]);
+
 	FILE *input1 = fopen(argv[1], "r");
 	FILE *input2 = fopen(argv[2], "r");
 
@@ -53,7 +55,7 @@ int main(int argc, char* argv[]){
 		}
 	}
 
-/*	code to check if matrices parsed correctly (they did)
+//	code to check if matrices parsed correctly (they did)
 	printf("Matrix 1\n");
 
 	for(a = 0; a < row1; a++){
@@ -70,18 +72,33 @@ int main(int argc, char* argv[]){
 			printf("%f ", matrix2[a][b]);
 		}
 		printf("\n");
-	}*/
+	}
 
 
 	//sequential matrix multiplication
 
-/*	double matrixResult[row1][col2];
-	int x, y;
+	double matrixResult[row1][col2];
+	int x, y, product;
 	for(x = 0; x < row1; x++){
 		for(y = 0; y < col2; y++){
-			matrixResult[x][y] = matrix1[]
+			product = 0;
+			for(a = 0; a < col1; a++){
+				product = product + (matrix1[x][a] * matrix2[a][y]);
+			}
+			matrixResult[x][y] = product;
 		}
-	}*/
+	}
+
+	printf("Matrix result\n");
+
+	for(a = 0; a < row1; a++){
+		for(b = 0; b < col2; b++){
+			printf("%f ", matrixResult[a][b]);
+		}
+		printf("\n");
+	}
+
+
 
 
 	fclose(input1);
